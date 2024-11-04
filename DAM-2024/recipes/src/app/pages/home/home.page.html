@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Recipes
+    </ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <!-- Barra de búsqueda -->
+    <ion-searchbar 
+      show-cancel-button="always"        
+      search-icon="search-circle"        
+      placeholder="Search recipes" 
+      (ionInput)="buscar($event)"
+      (ionCancel)="cancelarBusqueda()">
+    </ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-recipe-item
+    *ngFor="let recipe of recipesFilter"
+    [recipe]="recipe"
+    (recipeClicked)="onRecipeClicked($event)"
+  ></app-recipe-item>
+</ion-content>
+
+
+
+
+
